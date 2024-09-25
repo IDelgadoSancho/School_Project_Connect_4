@@ -1,6 +1,7 @@
 package conecta4;
+import java.util.Scanner;
 
-public class partida {
+public class Partida {
     boolean taulerLleno;
     boolean colLlena;
     boolean filLlena;
@@ -10,7 +11,7 @@ public class partida {
     int contX;
     int contO;
 
-    public partida() {
+    public Partida() {
     }
 
     public boolean isTaulerLleno() {
@@ -77,8 +78,25 @@ public class partida {
         this.contO = contO;
     }
 
-    public void crearTauler(int filas, int columnas) {
+    public void creacioTauler(int numFil, int numCol){
+        Scanner teclat = new Scanner(System.in);
+        System.out.print("Cuantas filas quieres? (min 4) --> ");
+        numFil = teclat.nextInt();
+        System.out.print("Cuantas columnas quieres? (min 4) --> ");
+        numCol = teclat.nextInt();
+        Tauler tablero1 = new Tauler(numFil, numCol);
+
+        //condicion para tablero mayor que 4x4
+        while (numFil < 4 || numCol < 4) {
+            System.err.println("\nError, el tablero ha de ser como minimo de 4 x 4!");
+            System.out.print("Cuantas filas quieres? (min 4) --> ");
+            numFil = teclat.nextInt();
+            System.out.print("Cuantas columnas quieres? (min 4) --> ");
+            numCol = teclat.nextInt();
+            teclat.nextLine();
+            celdas = new char[numFil][numCol];
+        }
+        }
 
     }
 
-}
