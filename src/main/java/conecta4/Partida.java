@@ -1,102 +1,48 @@
 package conecta4;
+
 import java.util.Scanner;
 
 public class Partida {
-    boolean taulerLleno;
-    boolean colLlena;
-    boolean filLlena;
-    boolean turno;
-    char fichaX = 'x';
-    char fichaO = 'o';
-    int contX;
-    int contO;
+
+    Tauler tablero;
 
     public Partida() {
     }
 
-    public boolean isTaulerLleno() {
-        return taulerLleno;
+    public Tauler getTablero() {
+        return tablero;
     }
 
-    public void setTaulerLleno(boolean taulerLleno) {
-        this.taulerLleno = taulerLleno;
+    public void setTablero(Tauler tablero) {
+        this.tablero = tablero;
     }
 
-    public boolean isColLlena() {
-        return colLlena;
-    }
-
-    public void setColLlena(boolean colLlena) {
-        this.colLlena = colLlena;
-    }
-
-    public boolean isFilLlena() {
-        return filLlena;
-    }
-
-    public void setFilLlena(boolean filLlena) {
-        this.filLlena = filLlena;
-    }
-
-    public boolean isTurno() {
-        return turno;
-    }
-
-    public void setTurno(boolean turno) {
-        this.turno = turno;
-    }
-
-    public char getFichaX() {
-        return fichaX;
-    }
-
-    public void setFichaX(char fichaX) {
-        this.fichaX = fichaX;
-    }
-
-    public char getFichaO() {
-        return fichaO;
-    }
-
-    public void setFichaO(char fichaO) {
-        this.fichaO = fichaO;
-    }
-
-    public int getContX() {
-        return contX;
-    }
-
-    public void setContX(int contX) {
-        this.contX = contX;
-    }
-
-    public int getContO() {
-        return contO;
-    }
-
-    public void setContO(int contO) {
-        this.contO = contO;
-    }
-
-    public void creacioTauler(int numFil, int numCol){
+    public void ponerFicha() {
         Scanner teclat = new Scanner(System.in);
-        System.out.print("Cuantas filas quieres? (min 4) --> ");
-        numFil = teclat.nextInt();
-        System.out.print("Cuantas columnas quieres? (min 4) --> ");
-        numCol = teclat.nextInt();
-        Tauler tablero1 = new Tauler(numFil, numCol);
+        System.out.println("\nTurno del primer(1) jugador 'X'");
+        System.out.printf("Elige una columna donde poner la ficha [1-%d] ", this.tablero.col);
+        int ponerFicha = teclat.nextInt();
+        teclat.nextLine();
+        ponerFicha = ponerFicha - 1;
 
-        //condicion para tablero mayor que 4x4
-        while (numFil < 4 || numCol < 4) {
-            System.err.println("\nError, el tablero ha de ser como minimo de 4 x 4!");
-            System.out.print("Cuantas filas quieres? (min 4) --> ");
-            numFil = teclat.nextInt();
-            System.out.print("Cuantas columnas quieres? (min 4) --> ");
-            numCol = teclat.nextInt();
+        // mirar si estas poniendo ficha fuera
+        while (ponerFicha > this.tablero.tablero[0].length - 1 || ponerFicha < 0) {
+            System.err.println("Error, columna no valida!");
+            System.out.printf("Elige una columna donde poner la ficha [1-%d] ", this.tablero.col);
+            ponerFicha = teclat.nextInt();
+            ponerFicha = ponerFicha - 1;
             teclat.nextLine();
-            celdas = new char[numFil][numCol];
-        }
         }
 
+        // poner ficha
+        int fil = this.tablero.tablero.length - 1;
+        boolean turnoAcabado = false;
+        while (fil >= 0 && turnoAcabado) { // bucle que recorre el array de las columnas
+            if (this.tablero.tablero[fil][ponerFicha] == ' ') {
+                this.tablero.tablero[fil][ponerFicha] = 'x';
+                turnoAcabado = true;
+                fil--;
+            }
+        }
     }
-
+}

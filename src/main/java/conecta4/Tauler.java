@@ -1,70 +1,95 @@
 package conecta4;
 
+import java.util.Scanner;
+
 public class Tauler {
-    int numCol;
-    int numFil;
-    char celdas[][];
+    int col;
+    int fil;
+    char tablero[][];
 
-    public Tauler(int numCol, int numFil) {
-        this.numCol = numCol;
-        this.numFil = numFil;
+    public Tauler() {
     }
 
-    public int getNumCol() {
-        return numCol;
+    public int getcol() {
+        return col;
     }
 
-    public void setNumCol(int numCol) {
-        this.numCol = numCol;
+    public void setcol(int col) {
+        this.col = col;
     }
 
-    public int getNumFil() {
-        return numFil;
+    public int getfil() {
+        return fil;
     }
 
-    public void setNumFil(int numFil) {
-        this.numFil = numFil;
+    public void setfil(int fil) {
+        this.fil = fil;
     }
 
-    public char[][] getCeldas() {
-        return celdas;
+    public char[][] getablero() {
+        return tablero;
     }
 
-    public void creaTauler(int numFil, int numCol) {
-        char espacio = ' ';
-        char celdas[][] = new char[numFil][numCol];
-        for (int f = 0; f < celdas.length; f++) {
-            for (int c = 0; c < celdas[f].length; c++) {
-                celdas[f][c] = espacio;
-            }
-        }
-    }
+    public void creaTauler() {
+        Scanner teclat = new Scanner(System.in);
+        int numFil = this.fil;
+        int numCol = this.col;
+        // creacion array bidimensional (tablero)
+        System.out.print("Cuantas filas quieres? (min 4) --> ");
+        numFil = teclat.nextInt();
+        System.out.print("Cuantas columnas quieres? (min 4) --> ");
+        numCol = teclat.nextInt();
 
-    public void mostraTauler(int numfil, int numcol) {
-        numfil = celdas.length;
-        for (int f = 0; f < celdas.length; f++) {
-            System.out.print("  ");
-            for (int i = 0; i < numCol; i++) { // bucle para poner los "--------------------"
-                System.out.printf("---");
-            }
-            System.out.println();
-            System.out.printf("%2d", numfil); // numeros de las filas
-
-            for (int c = 0; c < celdas[f].length; c++) {
-                System.out.printf("[%s]", celdas[f][c]); // celdas
-            }
-            System.out.println();
-            numfil--;
-        }
-        System.out.print("  ");
-        for (int i = 0; i < numCol; i++) { // bucle para poner los "---------------" al final
-            System.out.print("---");
+        // condicion para tablero mayor que 4x4
+        while (numFil < 4 || numCol < 4) {
+            System.err.println("\nError, el tablero ha de ser como minimo de 4 x 4!");
+            System.out.print("Cuantas filas quieres? (min 4) --> ");
+            numFil = teclat.nextInt();
+            System.out.print("Cuantas columnas quieres? (min 4) --> ");
+            numCol = teclat.nextInt();
+            teclat.nextLine();
         }
         System.out.println();
-        System.out.print(" ");
-        for (int i = 0; i < numCol; i++) { // numeros de cada columna
-            System.out.printf("  %d", i + 1);
+        this.col = numCol;
+        this.fil = numFil;
+        this.tablero = new char[numFil][numCol];
+
+        // llenar el array con espacion en blanco
+        for (int f = 0; f < this.tablero.length; f++) {
+            for (int c = 0; c < this.tablero[f].length; c++) {
+                this.tablero[f][c] = ' ';
+            }
         }
-        System.out.println();
+    }
+
+    public void mostraTauler(){
+        int numfil = this.fil;
+        int numCol = this.col;
+
+        // mostrar tablero
+                for (int f = 0; f < this.tablero.length; f++) {
+                    System.out.print("  ");
+                    for (int i = 0; i < numCol; i++) {  //bucle para poner los "--------------------"
+                        System.out.printf("---");
+                    }
+                    System.out.println();
+                    System.out.printf("%2d", numfil);  //numeros de las filas
+
+                    for (int c = 0; c < this.tablero[f].length; c++) {
+                        System.out.printf("[%s]", this.tablero[f][c]); //celdas
+                    }
+                    System.out.println();
+                    numfil--;
+                }
+                System.out.print("  ");
+                for (int i = 0; i < numCol; i++) {  //bucle para poner los "---------------" al final
+                    System.out.print("---");
+                }
+                System.out.println();
+                System.out.print(" ");
+                for (int i = 0; i < numCol; i++) {  //numeros de cada columna
+                    System.out.printf("  %d", i + 1);
+                }
+                System.out.println();
     }
 }
