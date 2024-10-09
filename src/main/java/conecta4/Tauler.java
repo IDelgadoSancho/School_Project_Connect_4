@@ -53,8 +53,9 @@ public class Tauler {
         this.col = numCol;
         this.numfil = numnumfil;
         this.tablero = new char[numnumfil][numCol];
+    }
 
-        // llenar el array con espacion en blanco
+    public void vaciartablero() {
         for (int f = 0; f < this.tablero.length; f++) {
             for (int c = 0; c < this.tablero[f].length; c++) {
                 this.tablero[f][c] = ' ';

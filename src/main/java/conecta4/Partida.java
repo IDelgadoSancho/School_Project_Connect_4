@@ -59,4 +59,28 @@ public class Partida {
             fil--;
         }
     }
+
+    public boolean empate() {
+        Scanner teclat = new Scanner(System.in);
+        String comandoSalir = "";
+        boolean repetir = false;
+        if (this.tablero.tableroLleno()) {
+            System.out.println("\n===================================");
+            System.out.println("EMPATE!");
+            System.out.println("Repetir? (si/no) ");
+            comandoSalir = teclat.nextLine();
+            while (!comandoSalir.equalsIgnoreCase("si") && !comandoSalir.equalsIgnoreCase("no")) {
+                System.err.println("Error, opción inválida!");
+                System.out.print("Repetir? (si/no) ");
+                comandoSalir = teclat.nextLine();
+            }
+            if (comandoSalir.equalsIgnoreCase("si")) {
+                repetir = true;
+                System.out.println("\n===================================");
+            } else if (comandoSalir.equalsIgnoreCase("no")) {
+                repetir = false;
+            }
+        }
+        return repetir;
+    }
 }

@@ -13,18 +13,30 @@ public class Main {
         // Creacion del tablero
         partida.setTablero(tablero);
         partida.tablero.creaTauler();
-        partida.tablero.mostraTauler();
 
         // Bucle pincipal
-        while (repetir) {
-            partida.ponerFicha(turno);
+        do {
+            partida.tablero.vaciartablero();
             partida.tablero.mostraTauler();
-            if (turno == 1) {
-                turno--;
-            } else {
-                turno++;
-            }
-        }
 
+            // Bucle poner fichas
+            while (!partida.tablero.tableroLleno() /** || ganador */
+            ) {
+                partida.ponerFicha(turno);
+                partida.tablero.mostraTauler();
+                if (turno == 1) {
+                    turno--;
+                } else {
+                    turno++;
+                }
+            }
+            if (partida.tablero.tableroLleno()) {
+                if (partida.empate()) {
+                    repetir = true;
+                } else {
+                    repetir = false;
+                }
+            }
+        } while (repetir);
     }
 }
