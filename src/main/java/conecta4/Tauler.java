@@ -124,4 +124,34 @@ public class Tauler {
         return tableroLleno;
     }
 
+    public int validaGanador() {
+        int ganador = 0;
+        int contX = 0;
+        int contO = 0;
+        // validar 4 en raya horizontal, con un contador que mira si hay 4 juntas
+        for (int f = 0; f < this.tablero.length; f++) {
+            for (int c = 0; c < this.tablero[f].length; c++) {
+                if (this.tablero[f][c] == 'x') { // contar las X
+                    contX++;
+                    if (contX == 4) { // mirar si el contador X es 4
+                        ganador = 1;
+                    }
+                } else {
+                    contX = 0;
+                }
+                if (this.tablero[f][c] == 'o') { // contar las O
+                    contO++;
+                    if (contO == 4) { // mirar si el contador O es 4
+                        ganador = 2;
+                    }
+                } else {
+                    contO = 0;
+                }
+            }
+            contX = 0;
+            contO = 0;
+        }
+        return ganador;
+    }
+
 }

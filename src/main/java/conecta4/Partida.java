@@ -69,11 +69,7 @@ public class Partida {
             System.out.println("EMPATE!");
             System.out.println("Repetir? (si/no) ");
             comandoSalir = teclat.nextLine();
-            while (!comandoSalir.equalsIgnoreCase("si") && !comandoSalir.equalsIgnoreCase("no")) {
-                System.err.println("Error, opción inválida!");
-                System.out.print("Repetir? (si/no) ");
-                comandoSalir = teclat.nextLine();
-            }
+            this.validarSiNo(comandoSalir);
             if (comandoSalir.equalsIgnoreCase("si")) {
                 repetir = true;
                 System.out.println("\n===================================");
@@ -82,5 +78,37 @@ public class Partida {
             }
         }
         return repetir;
+    }
+
+    public boolean ganador() {
+        Scanner teclat = new Scanner(System.in);
+        String comandoSalir = "";
+        boolean repetir = false;
+        if (this.tablero.validaGanador() == 1) {
+            System.out.println("\n===================================");
+            System.out.println("JUGADOR 1 (X) GANADOR!");
+        } else if (this.tablero.validaGanador() == 2) {
+            System.out.println("\n===================================");
+            System.out.println("JUGADOR 2 (O) GANADOR!");
+        }
+        System.out.println("Repetir? (si/no) ");
+        comandoSalir = teclat.nextLine();
+        this.validarSiNo(comandoSalir);
+        if (comandoSalir.equalsIgnoreCase("si")) {
+            repetir = true;
+            System.out.println("\n===================================");
+        } else if (comandoSalir.equalsIgnoreCase("no")) {
+            repetir = false;
+        }
+        return repetir;
+    }
+
+    public void validarSiNo(String respuesta) {
+        Scanner teclat = new Scanner(System.in);
+        while (!respuesta.equalsIgnoreCase("si") && !respuesta.equalsIgnoreCase("no")) {
+            System.err.println("Error, opción inválida!");
+            System.out.print("Repetir? (si/no) ");
+            respuesta = teclat.nextLine();
+        }
     }
 }

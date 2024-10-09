@@ -20,8 +20,7 @@ public class Main {
             partida.tablero.mostraTauler();
 
             // Bucle poner fichas
-            while (!partida.tablero.tableroLleno() /** || ganador */
-            ) {
+            while (partida.tablero.validaGanador() == 0 && !partida.tablero.tableroLleno()) {
                 partida.ponerFicha(turno);
                 partida.tablero.mostraTauler();
                 if (turno == 1) {
@@ -32,6 +31,12 @@ public class Main {
             }
             if (partida.tablero.tableroLleno()) {
                 if (partida.empate()) {
+                    repetir = true;
+                } else {
+                    repetir = false;
+                }
+            } else if (partida.tablero.validaGanador() != 0) {
+                if (partida.ganador()) {
                     repetir = true;
                 } else {
                     repetir = false;
