@@ -176,6 +176,39 @@ public class Tauler {
             contO = 0;
         }
 
+        // validar 4 en raya diagonal hacia arriba
+        for (int f = 3; f < this.tablero.length; f++) {
+            for (int c = 0; c < this.tablero[f].length - 3; c++) {
+                if (this.tablero[f][c] == 'x'
+                        && this.tablero[f - 1][c + 1] == 'x'
+                        && this.tablero[f - 2][c + 2] == 'x'
+                        && this.tablero[f - 3][c + 3] == 'x') {
+                    ganador = 1;
+                } else if (this.tablero[f][c] == 'o'
+                        && this.tablero[f - 1][c + 1] == 'o'
+                        && this.tablero[f - 2][c + 2] == 'o'
+                        && this.tablero[f - 3][c + 3] == 'o') {
+                    ganador = 2;
+                }
+            }
+        }
+
+        // validar 4 en raya en diagonal hacia abajo
+        for (int f = 0; f < this.tablero.length - 3; f++) {
+            for (int c = 0; c < this.tablero[f].length - 3; c++) {
+                if (this.tablero[f][c] == 'x'
+                        && this.tablero[f + 1][c + 1] == 'x'
+                        && this.tablero[f + 2][c + 2] == 'x'
+                        && this.tablero[f + 3][c + 3] == 'x') {
+                    ganador = 1;
+                } else if (this.tablero[f][c] == 'o'
+                        && this.tablero[f + 1][c + 1] == 'o'
+                        && this.tablero[f + 2][c + 2] == 'o'
+                        && this.tablero[f + 3][c + 3] == 'o') {
+                    ganador = 2;
+                }
+            }
+        }
         return ganador;
     }
 

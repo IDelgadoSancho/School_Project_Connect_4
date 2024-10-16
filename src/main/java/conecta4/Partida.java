@@ -67,6 +67,8 @@ public class Partida {
         if (this.tablero.tableroLleno()) {
             System.out.println("\n===================================");
             System.out.println("EMPATE!");
+            System.out.println("===================================");
+
             System.out.println("Repetir? (si/no) ");
             comandoSalir = teclat.nextLine();
             this.validarSiNo(comandoSalir);
@@ -87,9 +89,13 @@ public class Partida {
         if (this.tablero.validaGanador() == 1) {
             System.out.println("\n===================================");
             System.out.println("JUGADOR 1 (X) GANADOR!");
+            System.out.println("===================================");
+
         } else if (this.tablero.validaGanador() == 2) {
             System.out.println("\n===================================");
             System.out.println("JUGADOR 2 (O) GANADOR!");
+            System.out.println("===================================");
+
         }
         System.out.println("Repetir? (si/no) ");
         comandoSalir = teclat.nextLine();
