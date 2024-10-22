@@ -99,7 +99,7 @@ public class Tauler {
         int numfil = this.tablero.length - 1;
         columnaLlena = false;
         // comprueba que la columna sea valida
-        if (columna < this.tablero.length - 1 || columna > 0) {
+        // if (columna < this.tablero.length -1 || columna > 0) {
             // comprueba la columna si esta llena
             while (numfil >= 0) {
                 if (this.tablero[numfil][columna] == ' ') {
@@ -109,7 +109,7 @@ public class Tauler {
                 }
                 numfil--;
             }
-        }
+        // }
         return columnaLlena;
     }
 

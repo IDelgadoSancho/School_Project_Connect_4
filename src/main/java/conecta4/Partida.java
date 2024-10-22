@@ -31,18 +31,38 @@ public class Partida {
         ponerFicha = ponerFicha - 1;
 
         // mirar si estas poniendo ficha fuera o si la columna esta llena
+        // while (ponerFicha > this.tablero.tablero[0].length - 1 || ponerFicha < 0
+        // || this.tablero.columnaLlena(ponerFicha)) {
+        // if (this.tablero.columnaLlena(ponerFicha)) {
+        // System.err.println("Columna llena! elige otra columna");
+        // } else {
+        // System.err.println("Error, columna no valida!");
+        // }
+
         while (ponerFicha > this.tablero.tablero[0].length - 1 || ponerFicha < 0
                 || this.tablero.columnaLlena(ponerFicha)) {
-            if (this.tablero.columnaLlena(ponerFicha)) {
-                System.err.println("Columna llena! elige otra columna");
-            } else {
+            if (ponerFicha > this.tablero.tablero.length - 1 || ponerFicha < 0) {
                 System.err.println("Error, columna no valida!");
+                System.out.printf("Elige una columna donde poner la ficha [1-%d] ", this.tablero.col);
+                ponerFicha = teclat.nextInt();
+                ponerFicha = ponerFicha - 1;
+                teclat.nextLine();
+
+            } else if (this.tablero.columnaLlena(ponerFicha)) {
+                System.err.println("Columna llena! elige otra columna");
+                System.out.printf("Elige una columna donde poner la ficha [1-%d] ", this.tablero.col);
+                ponerFicha = teclat.nextInt();
+                ponerFicha = ponerFicha - 1;
+                teclat.nextLine();
             }
-            System.out.printf("Elige una columna donde poner la ficha [1-%d] ", this.tablero.col);
-            ponerFicha = teclat.nextInt();
-            ponerFicha = ponerFicha - 1;
-            teclat.nextLine();
         }
+
+        // System.out.printf("Elige una columna donde poner la ficha [1-%d] ",
+        // this.tablero.col);
+        // ponerFicha = teclat.nextInt();
+        // ponerFicha = ponerFicha - 1;
+        // teclat.nextLine();
+        // }
 
         // poner ficha
         int fil = this.tablero.tablero.length - 1;
