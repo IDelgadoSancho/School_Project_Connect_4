@@ -12,6 +12,16 @@
 ~~~
 ## Conecta 4 en Java para el módulo M12 UF1 de DAW
 
+### Tecnologias utilizadas:
+
+- JAVA: Es un lenguaje de programación de propósito general, orientado a objetos.
+
+- VSC: Visual Studio Code es un editor de código fuente gratuito, ligero y multiplataforma desarrollado por Microsoft.
+
+- GIT: Es un sistema de control de versiones distribuido diseñado para gestionar y registrar los cambios en el código de un proyecto a lo largo del tiempo.
+
+---
+
  Conecta 4 es un juego de mesa de estrategia para dos jugadores, donde el objetivo es alinear cuatro fichas de un mismo color en una fila, ya sea horizontal, vertical o diagonal, en un tablero vertical.
 
  Los jugadores alternan turnos insertando una ficha en cualquier columna, y la ficha cae hasta ocupar la posición más baja disponible. Gana el primero que logre conectar cuatro fichas consecutivas.
