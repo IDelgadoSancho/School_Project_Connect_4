@@ -10,52 +10,67 @@
 |                                             |
  =============================================
 ~~~
-## Conecta 4 en Java para el módulo M12 UF1 de DAW
 
-### Tecnologias utilizadas:
+## Connect 4 in Java
 
-- JAVA: Es un lenguaje de programación de propósito general, orientado a objetos.
+### Technologies used:
 
-- VSC: Visual Studio Code es un editor de código fuente gratuito, ligero y multiplataforma desarrollado por Microsoft.
+- **JAVA**: A general-purpose, object-oriented programming language.
 
-- GIT: Es un sistema de control de versiones distribuido diseñado para gestionar y registrar los cambios en el código de un proyecto a lo largo del tiempo.
+- **VSC**: Visual Studio Code is a free, lightweight, cross-platform source code editor developed by Microsoft.
+
+- **GIT**: A distributed version control system designed to manage and track changes in a project over time.
 
 ---
 
- Conecta 4 es un juego de mesa de estrategia para dos jugadores, donde el objetivo es alinear cuatro fichas de un mismo color en una fila, ya sea horizontal, vertical o diagonal, en un tablero vertical.
+Connect 4 is a two-player strategy board game where the goal is to align four same-color tokens in a row, whether horizontally, vertically, or diagonally, on a vertical board.
 
- Los jugadores alternan turnos insertando una ficha en cualquier columna, y la ficha cae hasta ocupar la posición más baja disponible. Gana el primero que logre conectar cuatro fichas consecutivas.
+Players alternate turns inserting a token into any column, and the token falls to the lowest available position. The first to connect four consecutive tokens wins.
 
-El programa Empieza pidiendo al usuario las medidas del tablero:
+The program starts by asking the user to enter the board dimensions:
 
 ![alt text](img/image.png)
 
-El programa contiene validacion en caso de intentar introducir filas o columnas por debajo del minimo:
+The program includes validation in case the player tries to enter rows or columns below the minimum:
 
 ![alt text](img/image2.png)
 
-Cuando el juego comienza primero se mostrara el tablero, junto a un mensaje donde se muestra el turno del jugado actual, para poder escribir la columna donde se desa poner la ficha:
+When the game starts, the board is displayed first, along with a message showing the current player's turn and prompting for the column number to drop the token:
 
 ![alt text](img/image3.png)
 
-Aqui tambien hay validación dependiendo si el jugador introduce una columna no existente, por ejemplo (-1):
+Validation is also included if the player enters a non-existent column, for example (-1):
 
 ![alt text](img/image4.png)
 
-El programa valida si se esta poniendo una ficha sobre una columna llena:
+The program checks if a token is placed in a full column:
 
 ![alt text](img/image5.png)
 
-Tambien validará si el tablero queda lleno, en ese caso la partida habrá acabado en EMPATE:
+It also detects if the board is full; in that case, the game ends in a DRAW:
 
 ![alt text](img/image6.png)
 
-Despues de un EMPATE o cuando un jugador logra hacer un 4 en raya, se preguntará por conola si se desea repetir la partida o no
+After a DRAW or when a player manages to connect four tokens, the console asks whether the players want to restart the game or not.
 
-Si se introduce un comando no valido a "si" o "no", lo pedirá otra vez:
+If an invalid command is entered for “yes” or “no,” it will prompt again:
 
 ![alt text](img/image7.png)
 
-El mensaje del ganador muestra el jugador:
+The winner message shows which player has won:
 
 ![alt text](img/image8.png)
+
+---
+
+## 👨‍💻 About the Author
+
+**Ismael Delgado Sancho**  
+Full Stack Web Developer | Java · PHP · JavaScript · React · Laravel  
+📍 Based near Barcelona, Spain  
+📧 [ismaeldelgado117@gmail.com](mailto:ismaeldelgado117@gmail.com)  
+🔗 GitHub: [github.com/IDelgadoSancho](https://github.com/IDelgadoSancho)  
+🔗 LinkedIn: [linkedin.com/in/ismael-delgado-sancho-bb144b216](https://linkedin.com/in/ismael-delgado-sancho-bb144b216)
+
+This project was developed as part of my training in Web Application Development (DAW).  
+Feel free to reach out or explore my other projects on GitHub!
